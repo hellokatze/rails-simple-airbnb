@@ -1,0 +1,14 @@
+<%= render 'navbar' %>
+<h1><%= @flat.name %></h1>
+<p><strong>Address: </strong><%= @flat.address %></p>
+<p><strong>Description: </strong><%= @flat.description %></p>
+<p><strong>Number of guests allowed: </strong><%= @flat.number_of_guests %></p>
+<p><strong>Price per night: </strong><%= @flat.price_per_night %></p>
+<p><strong>Pets allowed?</strong></p>
+<% if @flat.pets_allowed %>
+  <p>Yes! Bring your furry friend ❤️🐾</p>
+  <% else %>
+    <p>No!!!! 👿</p>
+<% end %>
+
+<%= link_to "<< All flats", flats_path %>

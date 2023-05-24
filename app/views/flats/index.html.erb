@@ -1,0 +1,26 @@
+<%= render 'navbar' %>
+<h1>All our flats (<%= @flats.length %>)</h1>
+<div class="grid">
+  <% @flats.each do |flat| %>
+    <div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="https://images.unsplash.com/photo-1591825729269-caeb344f6df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title"><%= flat.name %></h5>
+      <p class="card-text"><%= flat.address %></p>
+      <div class="d-flex justify-content-start my-3">
+        <div class="d-flex mx-2">
+          <p class="card-text"><i class="fa-solid fa-users"></i><%= flat.number_of_guests %></p>
+        </div>
+        <div class="d-flex mx-2">
+          <p class="card-text"><i class="fa-solid fa-euro-sign"></i><%= flat.price_per_night %></p>
+        </div>
+        <div class="d-flex mx-3">
+          <% if flat.pets_allowed %>
+            <p><i class="fa-solid fa-dog"></i>Pets allowed!</p>
+          <% end %>
+        </div>
+      </div>
+        <a href=<%= "/flats/#{flat.id}" %> class="btn btn-primary">Find out more</a>
+    </div>
+  <% end %>
+</div>
